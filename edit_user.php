@@ -14,20 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Edit User</h5>
                         <?php
-                            // Connect to database
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "mydatabase";
-
-                            // Create connection
-                            $conn = new mysqli($servername, $username, $password, $dbname);
-
-                            // Check connection
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-
+                           require_once 'db1.php';
                             // Retrieve user data
                             if (isset($_GET["email"])) {
                                 $email = $_GET["email"];

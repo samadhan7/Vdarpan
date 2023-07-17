@@ -1,21 +1,9 @@
 <?php
+
 session_start(); 
 if(isset($_SESSION["val"]) && $_SESSION["val"] == 1)
 {
-
-
-  $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mydatabase";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+  require_once 'db1.php';
 
 // Initialize variables for search parameters
 $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -71,19 +59,7 @@ echo $html;
 }
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 2){
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -139,18 +115,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 2){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 3){
   
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -207,18 +172,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 3){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 4){
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -276,18 +230,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 4){
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 5){
 
   
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -346,18 +289,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 5){
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 6){
   
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -414,18 +346,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 6){
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 7){
 
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -482,19 +403,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 7){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 8){
 
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -552,18 +461,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 8){
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 9){
   
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -619,18 +517,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 9){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 10){
   
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -687,19 +574,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 10){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 11){
 
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -756,18 +631,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 11){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 12){
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -823,18 +687,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 12){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 13){
   
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -889,18 +742,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 13){
 }
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 14){
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -955,18 +797,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 14){
 }
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 15){
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -1021,18 +852,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 15){
 }
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 16){
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -1089,18 +909,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 16){
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 17){
   
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -1155,18 +964,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 17){
 }
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 18){
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
@@ -1224,18 +1022,7 @@ elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 18){
 
 elseif(isset($_SESSION["val"]) && $_SESSION["val"] == 19){
 
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "mydatabase";
-  
-  // Create a connection to the database
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+  require_once 'db1.php';
   
   // Initialize variables for search parameters
   $city = isset($_POST['city']) ? $_POST['city'] : '';
