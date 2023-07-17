@@ -1,0 +1,28 @@
+.container {
+    margin-top: 50px;
+    /* border: 2px solid  brown; */
+
+  }
+  
+  .card-deck .card {
+    margin-bottom: 20px;
+    border: 2px solid red;
+  }
+  
+  .modal-body {
+    padding: 30px;
+    /* border: 2px solid yellow; */
+
+  }
+  
+  body{
+    /* background-color: bisque; */
+    border: 2px solid blue;
+
+  }
+
+  img{
+
+    /* border: 2px solid green; */
+
+  }

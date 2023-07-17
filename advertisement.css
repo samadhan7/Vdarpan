@@ -1,0 +1,66 @@
+body{
+    height:100%;
+    width: 100%;
+    border: 2px brown solid;
+    border-radius: 10px;
+
+}
+#main{
+    margin: 10px;
+
+}
+
+
+form{
+
+  font-weight: 100;
+    background-color: antiquewhite;
+    justify-content: center;
+
+    text-align: center;
+  
+    justify-content: space-around;
+    
+
+}
+
+#inputt{
+
+        margin: 5px;
+        width: 500px;
+        border-radius: 10px;
+        text-align: center;
+}
+#inputtt{
+
+    margin: 5px;
+  
+    border-radius: 10px;
+}
+
+navv{
+
+    background-color:wheat;
+    margin-top: 0px;
+    /* color: skyblue; */
+    background-color:coral;
+    display: flex;
+}
+
+#login{
+  
+    position: absolute;
+    right: 20px;
+   
+    border: 2px solid brown;
+    border-radius: 10px;
+    /* margin: 5px; */
+  margin-top: 10px;
+  padding: 5px;
+    border-radius: 10px;
+
+}
+
+#login:hover{
+   background-color:  cadetblue;
+}

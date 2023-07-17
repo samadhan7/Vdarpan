@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Example</title>
+</head>
+<body>
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Search</h2>
+      <input type="text" id="searchInput" placeholder="Search...">
+      <ul id="searchResults"></ul>
+    </section>
+    <section>
+      <h2>Page 1</h2>
+      <p>This is the content of Page 1.</p>
+    </section>
+    <section>
+      <h2>Page 2</h2>
+      <p>This is the content of Page 2.</p>
+    </section>
+    <section>
+      <h2>Page 3</h2>
+      <p>This is the content of Page 3.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; My Website 2021</p>
+  </footer>
+  <script src="">
+
+
+
+
+    // Sample data - an array of objects representing web pages with titles and content
+const webPages = [
+{ title: "Page 1", content: "This is the content of Page 1." },
+{ title: "Page 2", content: "This is the content of Page 2." },
+{ title: "Page 3", content: "This is the content of Page 3." },
+// ... add more web pages as needed
+];
+
+// Function to search for web pages based on the user's query
+function searchWebPages(query) {
+// Convert the query to lowercase for case-insensitive search
+query = query.toLowerCase();
+
+// Filter web pages based on the query
+const results = webPages.filter((page) => {
+  const title = page.title.toLowerCase();
+  const content = page.content.toLowerCase();
+  return title.includes(query) || content.includes(query);
+});
+
+return results;
+}
+
+// Function to display the search results on the page
+function displaySearchResults(results) {
+const searchResultsElement = document.getElementById("searchResults");
+searchResultsElement.innerHTML = ""; // Clear previous results
+
+if (results.length === 0) {
+  searchResultsElement.innerHTML = "<li>No results found.</li>";
+} else {
+  results.forEach((page) => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = "#" + page.title.toLowerCase().replace(/\s/g, "-");
+    link.textContent = page.title;
+    li.appendChild(link);
+    searchResultsElement.appendChild(li);
+  });
+}
+}
+
+// Event listener for search input
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", (event) => {
+const query = event.target.value;
+const searchResults = searchWebPages
+(query);
+displaySearchResults(searchResults);
+});
+  </script>
+</body>
+</html>

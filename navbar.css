@@ -1,0 +1,136 @@
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #bab4de;
+   border:  20px soild rgb(127, 192, 22);
+    padding: 10px;
+     border-color:black;
+    /* position: fixed; */
+  }
+  
+  .navbar-left img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .navbar-right a {
+    color: #fff;
+    margin-left: 10px;
+  }
+
+
+  nav{
+
+    border: 2px soild brown;
+    
+    border-radius: 10px ;
+    
+    
+    
+      /* background-color: aqua; */
+      border: 2px solid black;
+    }
+  
+.navbot{
+  padding: 2px;
+
+  text-align:center;
+  color: rgb(54, 176, 200);
+  font-weight:bold;
+ 
+  /* text-shadow: 3px 1px red; */
+  border: 2px solid grey;
+  
+  border-radius: 15px;
+  /* background-color:salmon ; */
+}
+
+  .search-bar {
+    margin-top: 10px;
+   
+    /* margin: 20px; */
+
+
+  }
+  
+   .search-bar input  {
+   
+
+    /* margin-left: 30% ; */
+    /* margin-right: 50%; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+  }
+  
+  /* .search-bar button {
+   
+
+    margin-left: 50% ;
+    margin-right: 50%;
+    justify-content: center;
+    align-items: center;
+    
+  } */
+ 
+
+  /* .search-bar button{
+    */
+
+    /* display: flex; */
+  /* margin-right: 50%; */
+    /* justify-content: center;
+    align-items: center; */
+    
+  
+/*   
+  .search-bar button {
+    padding: 5px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+   */
+  
+  
+  
+
+  
+  
+  .navbar-left img{
+
+    /* background-color:red;
+     */
+     width: 100px;
+   
+     border :2px soild brown;
+ 
+     border-radius: 10px;
+     /* background-color: rgb(189, 159, 192); */
+ 
+ 
+     /* border-color: red; */
+   }
+ 
+  .navbar-right
+  
+ {
+   /* border: 2px solid brown; */
+ 
+ }
+ 
+ #styling{
+   border: 2px solid rgb(222, 83, 3);
+ 
+   padding: 2px;
+   border-radius: 10px;
+    color:black;
+    background-color: wheat;
+ }
+ 

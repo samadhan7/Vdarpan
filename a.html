@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>College Information</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>College Information</h1>
+		<form>
+			<div class="form-group">
+				<label for="city-select">Select a city:</label>
+				<select class="form-control" id="city-select">
+					<option value="">--Select a city--</option>
+					<option value="New York">New York</option>
+					<option value="Los Angeles">Los Angeles</option>
+					<option value="Chicago">Chicago</option>
+					<option value="Houston">Houston</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="college-search">Search for a college:</label>
+				<input type="text" class="form-control" id="college-search" oninput="searchColleges()">
+			</div>
+		</form>
+		<div id="college-info"></div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<!-- Custom JS -->
+	<script >
+
+
+        // Define college information for each city
+const collegeData = {
+
+	"Los Angeles": [
+		{
+			"name": "University of California, Los Angeles",
+      "image": '<a href="https://example.com"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUQEhAVFRUVFRYQFhUQEBMQFhYVFRUWFhYWFxUZHiggGBolHRUVITEiJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGi0lICUtLS0tLS0tLS0tLS0tLS0tLS8tKy0tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0uLS0tLf/AABEIASwAqAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAgQBAwUGB//EADkQAAEDAgQEAwYEBgIDAAAAAAEAAhEDIQQSMUEFIlFhBhNxMoGRobHwFELB4SNSYnLR8QcVJDND/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAEDAgQFBv/EACURAQEAAgICAgIBBQAAAAAAAAABAhEDIRIxE0EEUaEFIjJxkf/aAAwDAQACEQMRAD8A+GoiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiyFhARSa1SdSIQa0WSEQYRZWEBERAREQEREBERAREQEREBERBmFIi6yyRBHp+y21Gcxb1OZp9dL97IrZh6V+vL9/T5pUcZMXvF9NrffVW8Ow5LC5OWI6wQPp8VCq3p8rT3WW+3dnSo+nIkaj7/wtJCvZf8AZ/U+9aalOxsZ0PY319y6lSxUKyGFTyy74K9Tw67cqApFT8ldDyFg0lUc17FrV6vTVIpRhERQEREBERARFlBhFmEhBKk+DMSNxpIXTx1IODXN1A0t/dBG28fsqdHCONyx0dQQPkdVca22WeYbOblJaL32tfmn1XNruT9rGFqTTBGpJJ/uAk/QH3rRXeGiT6CNT6dle8loktu0mbEWJkEiNA4ajYgbKnj6Mta7YEtP9JJkA+oXGOEyyTkyuMipTrAkAyJt1H7Lc4XE7HKfTb9R7gtb8PZpF80geskKzjvaeBsBPxateTCY3pnhybulOm3+Jfb9AAupTbOy49TWQfvdd3h9MlgJUjRjKtbmq45igWhdRK52IpSuXWpQu/VA6LnYlo+7q1HMRSIRcgiIgIiKAshYC20KRcQ0C5RYuYDBAjM/fQfqV3cLgmOgZG/SPeFVbgCR7YB6RI+Kt8PrAOyHUWP37l5c8rfT044ydN1XhBp84l1PQzcsO0ncHr7ukwqcOkS0wdQvX8CqcwBIymxDgHAg2IINiFHxHwinQfnpucGEiWOuA11szHbgEjWbTey8/wAl9uvH6rwdJpY4scMs3i8HTmbtFtNpnSVGs5wh7BqIcMshwHUfendexbg2VOWo2RPoQeoOxXK4zwZ2HIBOZj+ZjxDZidQNHjfbS8GB6OLlmf8Atnnx9avp5n8e6LNA1APT0CrvYRYzJMmdQB19T9F06ldwnqD922VSnQL3wLkj6/st4wx48cfUbMPwrM1rrkkb9V3qeHytA6K5w/ChjBngHabCdljHENGokrt05dVU6r4VxxjVUMfpIXX05VsRW6Kqak+9anVVpJkqbNIuRZLURUUREciIgUEmMJIA1NgvZeHOCtJ5nQ0CXvGrj/I3t1P6rkcFwIA85+hHKN43K9FT4i0EU26QYjt/tebmzvrFvx4yd11+HUqbKtMlrYdUywQIDQ1x+MgKxxrhdOvTqYhmWnUY4NGSG5memhItf1XkuJ8bYHtDXSWgzlvzExE+75qhW45WcCGnKD71jhwc2WrHeXLhPbv8LxppvFN9+jpJn919H4Rkq0zSeG5SCAHDMJP9MQvghxFQODy4yDOq+neEvEJytflltmktvlJ6jUJz8N49Zf8AV4+SZ9LHGOFjCvEAsabZAS5oOssJk5SJsZjKeyu06H4qg7DmHA3YbAteLgg7L0vHuHtxmELmxnZzscNiO3oSCOhK4nB2MeBlb5VQDLIAiQIhwHQ9c3oF5t+OUu/bX3Hy3ilBzXuZUGVzSWkERcQffrPoVb8LYJ1R73AjkLRBHW+adhcBei/5Iwp/9r2w9oyuImKjQ0S9vadpJEd15rwyxlNj61dtRrXAtDg18HMIAzNuDYRsvp8WfnHlzmq7AxZJDqdRr6pFRuQOazy2gEPJaA50iNSRLZIG6pY5zpJd7Ukn1UcRRLBTpuY6MwBFN7i6wBfBFgQXRcHUgQq1XECCNtp1jZaRlXNxmM23VN2Mt8lpxhOZaFVRKkxqi5b6DUGuqLIp4htkVgrIiI5ERb8E2ajAf5h9VCPVYvDFlKjNi6iyR/UIB+UFcfE1zSyge2BE9uqucU4jy5DtcHouRS5yXONz1WHDhcr215LIxh6a9B4f4IcS8tkNYxpqVHbtYBJIG5sT0sVzqOHK9rgMOaPDHuyw7FVRTDjlzeW3MXgRcN5GC+vmO2hfWwx8Y8efby9Lgr34epiI/h03MYTBMvfHKCBAgXvG2pK0cGxtXC1Q5l2OIa9pEtcD26r3HHKflYTDYIDmLfPqSbh1QioG5Qf6wJI/+YjdcSnwhtRhYZB2PQ3I+/VdcnDjy4XcYYc1484+seDsayo3kOV8Qabzmae4PTuJHZcrjeG/D1/M9kOIJbPskmGkHdp0/deS8DcfFN/4es0Mq03ZM0AZr2v1XuvHlNlbAOqOqQ/KcsQC6CJbO0yL9wvy3Nx2X471Zf4fewy3PKeq5fiJrcRSpmqHDDDO2rUDZAJDck3zBnM4F0RLm3heYxLfLDqeZvkZmuoeYwh59h1jMmiKmYCRzZYBiSvaHh2LpYWlTe+m9mYCpkpv8wkU7DMAQ9uemL5BYN2kri1GNLqbTXbzNDj5tMnzQWxmFQck5uW4IGSBK+txcfhNR5c8t9vLYjO1wc2qGGnSLi2XSRUfUEgkmTyAa2npdeXx9ch1tF6fHmkwua2gSBQLWOEuLPLe9oJtyxaTJXlMUZM69YUyv04kVKhkKuAt4F1p3VxVBy2MqQoOUF2idWpKLWiIwiIjkW3CGHtJ6hakBUHSxzpKlTwQcJbmHeJWt1w10aifgupwDi9OkQKoMdhmt6KYTUaXW+0uEYqHClVGtmu/Qr6v/wBVTxGHw0VJFJjJZnaDEgVSWOM3awNbFpBmy+ScbxdGq8uoZgLGHDLzDcL6HVp/h8GKsjPUGWAYJkSZA1aF7uHK5Tv6eXlmvTHG2GtiKlUgDM4gR0BgevqruF4bLYb69Oy+aVcTic0/iXDcS6BHoulw7i/EG+xVz9uV8rb58JNarCcGVu+nV8TcPNLEUsQ0SHEUKgIsc0Bl/wC4BfSvDWDpVqQa5oc0i7KjQ9kixBY6YPpC8K3jzcXRfhsQ0Uqrmlk6AuizhPsuBgwvovhA5sPTxI1qUmuc02h+UZvfMg+i+T/UcMcssc4+j+JlZjca4OMaz8K6jWzDEsdWOHpVHQ/zGBwpFjTLX0w0sGbK4AOJkbedxWKcH+WW1mPdmqBjG0qzJPKXUqoMMDnW/Lf8rV2eN4wvxzJJDW0KzC45h5ZqcsyBMnk+Erh8W4kGPp1qDuVjatIjyadPMHlocCyIFqbI0vJ3hZYfkYXCZWtMsLLqORVNalTOJ5Q1+ak1j2glhAuQ4XLw4ODgZgjUrxxfB1gaSLq/j8XmqOfJBc5zjN5LjcnaVzcQyx09yvl5ONaKz2kyCT3IA+SoFbm2PuVda4xKt4SjmWMXh4utmCqwFjG1pC6cqBCysLKCKIirkREUHV4UzMIOg0W/EYATMLVwnRdOvUhsgSdAO5sF6cJNdplts8LcKFSvJADKfMeki9/TVW+JcSOIxNyfLa4NAGzQY+O/vXSxNL8JgBr5lUxIkEk3N1wfC4Z+Ip+YYBcJzbibrbCTcjzcmVm6teMH4YVv/Hjy+WQ0EuaIEySdQQfiF6HguEwrqTXioZ1lh/UaFY8SeD6dYmrhjlH8pJkHsV5F3hfFMdYD+5ri0/JYcv4+UvTXi58dduxxTGsc8067TezarLEjbMNCdPgu/wD8feLjhRWwL/4rWg16DhsHXe0jpJze8+7kcG8E1ao/i1R2AzG/ck/otONwYwGIFR0EDkdF4a60/IT2lZ8vDllxX9u8OXGck/T3mGyvwtatWP8AGqkljSIIaTykdrSvn/FsQ5rgBcEkOb3ixHey9dxiqTSZVZUz0XAZTMub0Dj+YbB3x6nwPGqh1neV8TC+WUmta6fQy6jm49w6R7lznPgLo4mqSLrl1TBhfQ4508+TL6toj3rUsSpNW8mnCMkKLiSpkKAQYCIURNMIiKuRERB0+HOsFerVCbD7K5WGday208QQbhejHKSTaatvTrU6FavJ8xxLNcxOUbTE/RWsFha1RoPl8tN1ngFoMDQSATqCo8G4sxhMk83VsD3kEkfBew4TXpZOzrxIi42XpwmNm9vFyTOZas6W+EYg5IJXRols3016rzdXEBhsbbKtiONBujr9lr/kz6xet4h4gpUmHJ7Wnovl3iHjBqkzutfFuJlx1XBq1JXn5cpj1G3Hjc+6+geDsbUOFIY4Oa2adSm9uZvYjcSOnRcTjcScrYE+zMx6StPgviZpPeNjFtndWn9D1CxxivmeXDQkkL4eeGuV9TG/2ua2vLQ2LhVcS0zJC2Odc/Fa67rAL04zVZ1pCk1RCyFokZeoLY5QQqBRZKIiKLCyq5ERZAQWcIrDZaZyyPSVXwb73XfwzhZb4TymnNzuHcUGVKZEFt+vMrGEpOZzMqcv8pk/DorVbBN1C59Z2W0rfDjmN3tjyc+Wc1p0KnEiRcrk4nGE7rTVqlVyVzny36c4cX3UnvlanmFIvWtrS4gdV58q9EdGk40ssfmDal72On0WcXig5xLQQOh6rbxzh1Wm2lUqNLQWBrSWluZrbSOuq5BkiVhePd3WmOfXSdStdQlQWQutaNposArKCRKiShWCisIjNQsqo1oiI5FNgUQFtarFjXN7K2MQ5hgqo4LrHCec1pb7cAEbnaQN/dopc/Gnj5Nf/Ynqqz68lQfh3CxG0/ONPVBQdplOuXQ+109Vp8lrP45Av7JBWWMPTWTeBprqrWGwFR4lo/Iag0AIbrc2trr9VLnPur4/qKRb/hbMNLT5n8p36ro1xSptsM7uZpLXnLDxLTmsSRpYRZUK9UFrWDa5kfm9d1xMvL07mOva/wAb4m6sGFziQWg3dmjqI2uFyXu2U6ltFqP1VhrTBQIQsKUSCkoBTUVgrCyQolBlmqKKKpsRFlUFtZBstRWxje8HaBMn9FSFdsGF1eG1w5sPEx0sQB09SuS8klWMHUAIJkXkOF+91nnOnWN7drDsqO5czrtDQHMzwAZyy4aXF+6u4jhrwMz20+Z4cP4DLkcoGWBbt6qlh80l3MS4uY7K6Q4EAtDXAWIWa+KJYKfmOfeQ55DcrGg8oOpuT2C89xn1WizhcO/KHsIaBXFOWMpMy1XzAk3y6dhPZQxGHDMrqhzNzFjM7s7CZh2WdYJkxvCzjca3myFj2tAEewX52gF+pcD2mPVacRTJYWPcS1j2gF7fLLS9ogEkB0D5dE8Yjncf8sVMrBce0YI5tC0THLvcLmBpiYVnFVCXCX+YRI66GBzfmsJlQr1Q78sEbbL143U6Z6VyVhZceyiqieVQIW3OtZUALMrELBUVIqJRETYiIiMoFGVJVdgVml3+sKtOim56lWdLGHaMzpvtKr6GOi2YYan/AD9QtRKk91KtMqxdjy0+2CHEQek9VvfiKwaAKpMDyzLwQA68dhK5qJcJV8nSxmLqaiqXAgMMmJDbgEDZasRUBOcCeskm+xg9oVMlXMExsh3tdRZt9gCdTHzhS4zGLLutNSmQM9wSeXYx1Wurm1M+9dHiD5ABBBke0C09/wBVzsQ+T6JhlbOzKaRc3RRhTfsov1+C72mgKWXqoqQclOkViECFSjCBYREZRSlEGtZJWERGUWEQbqZEd7/Ba5WS61goJBKUlRUmRursF0KZAGSDYc3su1v7J1AF5HQKln/ypB2/wmNf93XN7dTpPEVBmtFrCLCd4+9lWlYRWdJakShKwgKISkrCIMyiwiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIP/9k="></a>',
+
+			"location": "Los Angeles, CA",
+			"enrollment": "45,000"
+		},
+		{
+			"name": "University of Southern California",
+			"location": "Los Angeles, CA",
+			"enrollment": "44,000"
+		},
+		{
+			"name": "California State University, Los Angeles",
+			"location": "Los Angeles, CA",
+			"enrollment": "28,000"
+		},
+	],
+	"Chicago": [
+		{
+			"name": "University of Chicago",
+			"location": "Chicago, IL",
+			"enrollment": "15,000"
+		},
+		{
+			"name": "Northwestern University",
+			"location": "Evanston, IL",
+			"enrollment": "22,000"
+		},
+		{
+			"name": "University of Illinois at Chicago",
+			"location": "Chicago, IL",
+			"enrollment": "33,000"
+		},
+	],
+	"Houston": [
+    {
+		"name": " Rice University",
+		"location": "Houston, TX",
+		"enrollment": "7,000"
+	},
+	{
+		"name": "University of Houston",
+		"location": "Houston, TX",
+		"enrollment": "47,000"
+	},
+	{
+		"name": "Texas Southern University",
+		"location": "Houston, TX",
+		"enrollment": "10,000"
+	},
+]
+
+};
+
+
+
+
+// Function to display college information for the selected city
+function displayColleges(city) {
+// Clear any previous college information
+document.getElementById("college-info").innerHTML = "";
+// Check if a city was selected
+if (city) {
+// Get the college information for the selected city
+const colleges = collegeData[city];
+// Create HTML to display the college information
+let html = "";
+if (colleges) {
+html += "<h2>Colleges in " + city + "</h2>";
+html += "<ul>";
+for (let i = 0; i < colleges.length; i++) {
+html += "<li><strong>" + colleges[i].name + "</strong><br>";
+html += colleges[i].location + "<br>";
+html += "Enrollment: " + colleges[i].enrollment + "</li>";
+}
+html += "</ul>";
+} else {
+html += "<p>No colleges found for " + city + ".</p>";
+}
+// Display the college information
+document.getElementById("college-info").innerHTML = html;
+}
+}
+
+// Function to filter colleges by name based on the search input
+function searchColleges() {
+// Get the search input value
+const searchValue = document.getElementById("college-search").value.toLowerCase();
+// Get the selected city
+const city = document.getElementById("city-select").value;
+// Check if a city was selected
+if (city) {
+// Get the college information for the selected city
+const colleges = collegeData[city];
+// Filter the colleges based on the search input
+const filteredColleges = colleges.filter(college => college.name.toLowerCase().includes(searchValue));
+// Create HTML to display the filtered college information
+let html = "";
+if (filteredColleges.length > 0) {
+html += "<h2>Colleges in " + city + " (search results)</h2>";
+html += "<ul>";
+for (let i = 0; i < filteredColleges.length; i++) {
+html += "<li><strong>" + filteredColleges[i].name + "</strong><br>";
+html += filteredColleges[i].location + "<br>";
+html += "Enrollment: " + filteredColleges[i].enrollment + "</li>";
+}
+html += "</ul>";
+} else {
+html += "<p>No colleges found for " + city + " and search input.</p>";
+}
+// Display the filtered college information
+document.getElementById("college-info").innerHTML = html;
+} else {
+// Display a message if no city is selected
+document.getElementById("college-info").innerHTML = "<p>Please select a city to search for colleges.</p>";
+}
+}
+
+
+
+
+// Add event listener to the city select element to display college information when a city is selected
+document.getElementById("city-select").addEventListener("change", () => {
+const city = document.getElementById("city-select").value;
+displayColleges(city);
+});
+
+// Display initial message when
+// the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("college-info").innerHTML = "<p>Please select a city to search for colleges.</p>";
+    });
+    
+    // Add event listener to the search button to filter colleges by name when clicked
+    document.getElementById("search-btn").addEventListener("click", () => {
+    searchColleges();
+    });
+    
+    // Add event listener to the search input to filter colleges by name when a key is pressed
+    document.getElementById("college-search").addEventListener("keyup", () => {
+    searchColleges();
+    });
+    
+    </script>
+    </body>
+    </html>
+
+    </script>
+</body>
+</html>
+ 

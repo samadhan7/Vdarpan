@@ -1,0 +1,196 @@
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #bab4de; */
+    background-color: beige;
+   /* border:  20px soild rgb(127, 192, 22); */
+    padding: 10px;
+    width: 100%;
+    /* border-color:black; */
+    height: 50px;
+    position: fixed;
+  z-index: 1;
+
+
+        /* border: 2px soild brown; */
+         
+        border-radius: 10px ;
+    
+    
+    
+        /* background-color: aqua; */
+        border: 2px solid black;
+  }
+
+  
+  .social-ions  img{
+    /* background-color: red; */
+  
+    
+
+  }
+
+  #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+        
+
+
+  #desc{
+
+     padding-left: 20px;
+     padding-right: 20px;
+    padding-top:100px; /* adjust this value to prevent content from being hidden behind navbar */
+  }
+
+
+  .service-item { 
+        
+    /* position: relative; */
+  }
+   
+   .service-item img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-item h4 {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-item:hover img {
+    transform: translate(5px, 5px);
+    
+  } 
+
+#collegeList{
+  /* position: absolute; */
+  /* margin-top: 80px; set the margin top value to be equal to the height of the navbar */
+
+}
+
+/* #a{
+
+  padding-top: 100px;  
+} */
+
+  
+  .navbar-left img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .navbar-right a {
+    color: #fff;
+    margin-left: 10px;
+  }
+
+
+  nav{
+    
+
+
+    }
+  
+.navot{
+  padding: 2px;
+
+  position: fixed;
+  top: 0;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+
+
+
+  text-align:center;
+  color: rgb(54, 176, 200);
+  font-weight:bold;
+ 
+  /* text-shadow: 3px 1px red; */
+  border: 2px solid grey;
+  
+  border-radius: 15px;
+  /* background-color:salmon ; */
+}
+
+ .para{ 
+
+    padding-top:50px; /* adjust this value to prevent content from being hidden behind navbar */
+    padding-left: 20px;
+    padding-right: 20px;
+    /* margin-top: 100px; */
+
+
+}
+
+
+
+  /* .search-bar { 
+    margin-top: 10px;
+   
+    /* margin: 20px; 
+
+
+  }*/
+  
+   .search-bar input  {
+   
+
+    /* margin-left: 30% ; */
+    /* margin-right: 50%; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+  }
+  
+ 
+  
+  
+  
+
+  
+  
+  .navbar-left img{
+
+    /* background-color:red;
+     */
+     width: 100px;
+      
+     font-family: sans-serif;
+   
+     /* border :2px soild brown; */
+ 
+     border-radius: 20px;
+     /* background-color: rgb(189, 159, 192); */
+ 
+ 
+     /* border-color: red; */
+   }
+ 
+
+ 
+ #logo{
+  /* background-color: red; */
+  /* border-radius: 20px; */
+  width: 100px; 
+   height: 40px;
+ }
+ #styling{
+   /* border: 2px solid rgb(222, 83, 3); */
+ 
+   border: 1px solid black;
+   padding: 2px;
+   border-radius: 10px;
+    color:black;
+    background-color: white;
+    /* background-color: wheat; */
+ }
+ 
+
+

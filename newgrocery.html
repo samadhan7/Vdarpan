@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Colleges</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="test.css">
+
+  <link rel="stylesheet" href=".css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+
+  <style>
+    #slid{
+
+    }
+    
+    .slider {
+			width: 500px;
+			height: 200px;
+			overflow: hidden;
+             justify-content:center;
+            text-align:center;
+             position: relative;
+             padd-top:200px;
+
+            border-radius:20px;
+		}
+
+        .slider {
+            margin: 0 auto;
+          }
+          
+          .slides img {
+            width: 100%;
+            height: 250px;
+          }
+
+
+
+
+
+#city{
+
+  width:100px;
+}
+
+
+
+#search{
+
+  width:400px;
+  margin-left:2px;
+}
+
+
+form{
+ display:flex;
+ padding-top :15px;
+ border-radius: 10px;
+  color:black;
+}
+
+		
+		
+  </style>
+</head>
+<body>
+
+  
+ 
+        
+    <nav>
+      <div class="navbar-left">
+        <img id="logo" src="https://www.vdarpan.com/assets/img/logo.png" alt="Logo" class="logo">
+      </div>
+
+
+
+
+
+
+
+     
+    
+      <form onsubmit="searchColleges(); return false;">
+         
+          
+          <div class="form-group"  id="ciy">
+            <select class="form-control" id="city" onchange="searchColleges()">
+              <option value="">All</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Pune">Pune</option>
+    
+              <option value="Ahmednagar">Ahmednagar</option>
+              <option value="Nashik">Nashik</option>
+              <option value="Thane">Thane</option>
+    
+    
+            </select>
+          </div>
+
+
+          <div class="form-group" id="seahh">
+            <input type="text" class="form-control" id="search" placeholder="Search by college name...">
+          </div>
+    
+        </form>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="navbar-right">
+        <select id="styling" id="lang">
+          <option value="Select Language">Select Language</option>
+          <option value="English">English</option>
+          <option value="Hindi">हिंदी(Hindi)</option>
+          <option value="Marathi">मराठी(Marathi)</option>
+          <option value="Other">Other</option>
+        </select>
+        <a  href="listing.html" id="styling"  href="#">Free Listing</a>
+        <a id="styling"  href="advertisement.html">Advertise</a>
+
+        <a  href="register.html" id="styling"   href="#">🚨 Alert</a>
+
+        <a id="styling"  href="advertisement.html">About Us</a>
+
+
+          
+
+         
+      <select onchange="window.location.href=this.value"   id="styling" id="lang">
+      <option value="">Sign-In</option>
+      <option value="newusersign.html">User</option>
+      <option value="newadminsign.html">Admin</option>
+    </select>
+
+    
+     
+    <select onchange="window.location.href=this.value"   id="styling" id="lang">
+      <option value="">Login</option>
+      <option value="newuserlogin.html">User</option>
+      <option value="newadminlogin.html">Admin</option>
+    </select>
+ 
+      
+     
+
+
+
+    </nav>
+
+        
+ 
+  
+ 
+  
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="search" placeholder="Search by college name...">
+      </div>
+
+    </form>
+    <h1 class="text-center my-" style="font-family: san-serif; 
+    ">Groceries</h1>
+
+    
+    <div id="collegeList" class="row"></div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <div id="footer"
+  class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <!-- Copyright -->
+  <div class="text-white mb-3 mb-md-0">
+    Copyright © 2020. All rights reserved.
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script>
+    function searchColleges() {
+      var search = document.getElementById("search").value.toLowerCase();
+      var city = document.getElementById("city").value;
+      var collegeList = document.getElementById("collegeList");
+      collegeList.innerHTML = "";
+      
+      if (city === "") {
+        addCollege("Manmoti Super Market", "https://lh3.googleusercontent.com/BOKhAfyPn3vm2VlEGc9SuQaECwLA7Pokth2Ap93X1zTUAs8EvdY0j-zP5C8c95MdGQKEMZ0maR7oTumc8aEyVdLP2YlHxMr-DZcUgO0=w900-rw", "https://www.fms.edu/");
+        addCollege("AmmA Vegetables and fruits shop", "https://lh3.googleusercontent.com/EnON3lIVIratgEZsR8JQLMAK0OYiju9Non6F1x-rOj2apFybjmyO7YPeL3NfVeBxuYkCUJxzms4DkdTY8vytOKjjvswhsqZ3y5VlvDzZ=w900-rw", "https://home.iitd.ac.in/");
+        addCollege(" Pawanputra Super Market", "https://lh3.googleusercontent.com/kLVtrSr1SBxq5dBQ-jcorT_fLcoofY4ICOd1GVw-WaUdzNSAzK-i_lehI8FkniyAgymGN7dAgbONPrWPkZsQ_HWqS1RJk-5ncs06S70=w900-rw", "https://www.du.ac.in/");
+       
+       
+       
+        addCollege("Chandank Supar Market And Verity", "https://www.iitb.ac.in/sites/www.iitb.ac.in/themes/touchm/logo.", "https://www.iitb.ac.in/");
+       
+        addCollege("AmmA Vegetables and fruits shop", "https://lh3.googleusercontent.com/EnON3lIVIratgEZsR8JQLMAK0OYiju9Non6F1x-rOj2apFybjmyO7YPeL3NfVeBxuYkCUJxzms4DkdTY8vytOKjjvswhsqZ3y5VlvDzZ=w900-rw", "https://home.iitd.ac.in/");
+        addCollege(" Pawanputra Super Market", "https://lh3.googleusercontent.com/kLVtrSr1SBxq5dBQ-jcorT_fLcoofY4ICOd1GVw-WaUdzNSAzK-i_lehI8FkniyAgymGN7dAgbONPrWPkZsQ_HWqS1RJk-5ncs06S70=w900-rw", "https://www.du.ac.in/");
+       
+       
+       
+        addCollege("Chandank Supar Market And Verity", "https://www.iitb.ac.in/sites/www.iitb.ac.in/themes/touchm/logo.", "https://www.iitb.ac.in/");
+       
+     
+      }
+      else if (city === "Delhi") {
+        addCollege("Faculty of Management Studies", "http://www.fms.edu/sites/all/themes/theme_fms/logo.png", "https://www.fms.edu/");
+        addCollege("Indian Institute of Technology Delhi", "https://home.iitd.ac.in/images/news/self-reliant-economy.jpg", "https://home.iitd.ac.in/");
+           }
+
+
+
+ else if (city === "Pune") {
+    addCollege(" Pawanputra Super Market", "https://lh3.googleusercontent.com/kLVtrSr1SBxq5dBQ-jcorT_fLcoofY4ICOd1GVw-WaUdzNSAzK-i_lehI8FkniyAgymGN7dAgbONPrWPkZsQ_HWqS1RJk-5ncs06S70=w900-rw", "https://www.du.ac.in/");
+       
+       
+       
+    addCollege("Chandank Supar Market And Verity", "https://www.iitb.ac.in/sites/www.iitb.ac.in/themes/touchm/logo.", "https://www.iitb.ac.in/");
+   
+   
+
+}
+
+
+
+      else if (city === "Mumbai") {
+        addCollege("Manmoti Super Market", "https://lh3.googleusercontent.com/BOKhAfyPn3vm2VlEGc9SuQaECwLA7Pokth2Ap93X1zTUAs8EvdY0j-zP5C8c95MdGQKEMZ0maR7oTumc8aEyVdLP2YlHxMr-DZcUgO0=w900-rw", "https://www.fms.edu/");
+        addCollege("AmmA Vegetables and fruits shop", "https://lh3.googleusercontent.com/EnON3lIVIratgEZsR8JQLMAK0OYiju9Non6F1x-rOj2apFybjmyO7YPeL3NfVeBxuYkCUJxzms4DkdTY8vytOKjjvswhsqZ3y5VlvDzZ=w900-rw", "https://home.iitd.ac.in/");
+    }
+        else if (city === "Bangalore") {
+          addCollege("Indian Institute of Science Bangalore", "https://iisc.ac.in/wp-content/uploads/2019/04/IISc-ill.jpg", "https://www.iisc.ac.in/");
+          addCollege("Bangalore University", "https://bangaloreuniversity.ac.in/wp-content/uploads/2018/03/BU-Admn-Blk-Front.jpg", "https://www.bangaloreuniversity.ac.in/");
+           }
+
+        function addCollege(name, imageUrl, url) {
+            if (name.toLowerCase().includes(search)) {
+              var col = document.createElement("div");
+              col.classList.add("col-lg-3", "col-md-6", "col-sm-12", "my-3");
+              col.innerHTML = `
+                <div class="card">
+                  <img class="card-img-top" src="${imageUrl}" alt="${name}" style="height: 200px;">
+                  <div class="card-body">
+                    <h5 class="card-title">${name}</h5>
+                    <a href="${url}" class="btn btn-primary">Get Info</a>
+                  </div>
+                </div>
+              `;
+              collegeList.appendChild(col);
+            }
+          }
+        }
+        
+        searchColleges();
+
+    </script>
+</body>
+</html>
+        
